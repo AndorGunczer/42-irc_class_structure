@@ -54,12 +54,12 @@
 /*
     PSEUDO CODE FOR DECISION MAKING AND CALLING EXECUTORS (Which Command function to call)
 
-    if (command[0] == "JOIN")
+    if (command == "JOIN")
     {
         Join joinInstance = Join(command);
         executeJoin(int _clientSocket, const Join &msg);
     }
-    if (command[0]) == "PART")
+    if (command == "PART")
     {
         Part partInstance = Part(command);
         executePart(int _clientSocket, const Part &msg);
