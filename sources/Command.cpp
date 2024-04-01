@@ -47,9 +47,45 @@
             this->splitInput = Helper::splitString(userInput);
             this->command = this->splitInput[0];
 
+            // test
+
             for (std::vector<std::string>::iterator it = this->splitInput.begin(); it != this->splitInput.end(); it++)
                 std::cout << *it << std::endl;
+
+            if (command == "JOIN")
+                std::cout << 1 << std::endl;
+            else
+                std::cout << 0 << std::endl;
         }
+
+// JOIN CLASS
+
+/*        std::vector<std::string> channelsToJoin;
+        std::vector<std::string> passwordStore;
+        bool removeAll = false; */
+
+Join::Join()
+{
+
+}
+
+Join::Join(Command const &command)
+{
+    this->splitInput = command.splitInput;
+    this->command = command.command;
+
+    // split on ,;
+    this->channelsToJoin = Helper::splitStringOnComma(this->splitInput[1]);
+    this->passwordStore = Helper::splitStringOnComma(this->splitInput[2]);
+    if (this->channelsToJoin[0] == "0")
+        this->removeAll = true;
+}
+
+Join::~Join()
+{
+
+}
+
 
 /*
     PSEUDO CODE FOR DECISION MAKING AND CALLING EXECUTORS (Which Command function to call)

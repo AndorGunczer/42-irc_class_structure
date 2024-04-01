@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Helper.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slippert <slippert@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 11:07:03 by slippert          #+#    #+#             */
-/*   Updated: 2024/03/23 13:01:01 by slippert         ###   ########.fr       */
+/*   Updated: 2024/04/01 14:28:28 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,24 @@ std::vector<std::string> Helper::splitString(const std::string &str)
 	}
 
 	return tokens;
+}
+
+std::vector<std::string> Helper::splitStringOnComma(const std::string &str)
+{
+	std::string tmp = str;
+	std::vector<std::string> vectorStore;
+	size_t wordStart = 0, wordEnd = 0;
+
+	for (std::string::iterator it = tmp.begin(); it != tmp.end(); ++it) {
+		if (*it != ',') {
+			wordEnd++;
+			continue;
+		}	else if (*it == ',') {
+			vectorStore.push_back(tmp.substr(wordStart, wordEnd - wordStart));
+			wordStart = ++wordEnd;
+		}
+	}
+	vectorStore.push_back(tmp.substr(wordStart, wordEnd - wordStart));
+
+	return vectorStore;
 }
