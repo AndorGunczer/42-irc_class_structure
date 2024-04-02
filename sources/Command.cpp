@@ -69,10 +69,10 @@ Join::Join()
 
 }
 
-Join::Join(Command const &command)
+Join::Join(const std::string &userInput) : Command(userInput)
 {
-    this->splitInput = command.splitInput;
-    this->command = command.command;
+    // this->splitInput = command.splitInput;
+    // this->command = command.command;
 
     // split on ,;
     this->channelsToJoin = Helper::splitStringOnComma(this->splitInput[1]);

@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 14:57:09 by slippert          #+#    #+#             */
-/*   Updated: 2024/04/01 15:01:37 by marvin           ###   ########.fr       */
+/*   Updated: 2024/04/01 15:08:47 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ int main() {
     }
     // test 3: Join Class
     {
-        Command testClassCommand("JOIN #wedogreat,#foo,&bar 12345,thisissuper");
-        Join testClass(testClassCommand);
+        // Command testClassCommand("JOIN #wedogreat,#foo,&bar 12345,thisissuper");
+        Join testClass("JOIN #wedogreat,#foo,&bar 12345,thisissuper");
 
         for (std::vector<std::string>::iterator it = testClass.channelsToJoin.begin(); it != testClass.channelsToJoin.end(); ++it){
             std::cout << *it << std::endl;

@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 12:51:17 by agunczer          #+#    #+#             */
-/*   Updated: 2024/04/01 13:58:47 by marvin           ###   ########.fr       */
+/*   Updated: 2024/04/01 15:06:07 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ class Join : public Command {
         std::vector<std::string> passwordStore;
         bool removeAll = false;
 
-        Join(Command const &Command);
+        Join(const std::string &userInput);
         ~Join();
 };
 
