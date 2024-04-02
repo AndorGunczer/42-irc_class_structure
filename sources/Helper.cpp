@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 11:07:03 by slippert          #+#    #+#             */
-/*   Updated: 2024/04/01 14:28:28 by marvin           ###   ########.fr       */
+/*   Updated: 2024/04/02 12:22:58 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,3 +91,54 @@ std::vector<std::string> Helper::splitStringOnComma(const std::string &str)
 
 	return vectorStore;
 }
+
+std::vector<parsedMode> Helper::collectModes(std::vector<std::string> inputVector) {
+
+	std::vector<parsedMode> modeCollection;
+	std::vector<std::string>::iterator it = inputVector.begin();
+
+	while (it < inputVector.end()) {
+		bool added = 0;
+		parsedMode oneMode;
+		
+		while (it < inputVector.end() && added != true) {
+			if ((*it)[0] == '#' || (*it)[0] == '&') {
+				oneMode.channel = *it;
+				it++;
+			}
+			if ((*it)[0] == '-' || (*it)[0] == '+') {
+				oneMode.modes = *it;
+				if ((*it)[0] == '-')
+					oneMode.operation = 0;
+				else
+					oneMode.operation = 1;
+				it++;
+				if ((*it)[0] == '-' || (*it)[0] == '+') {
+					modeCollection.push_back(oneMode);
+					added = true;
+				}
+				else {
+					if(it != inputVector.end()) {
+						oneMode.user = *it;
+						modeCollection.push_back(oneMode);
+						it++;
+						added = true;
+					}
+				}
+			}
+		}
+	}
+
+	return modeCollection;
+
+
+}
+
+bool Helper::isMode(const std::string &str) {
+	if (str[0] == '+' || str[0] == '-')
+		return true;
+	else
+		return false;
+}
+
+
