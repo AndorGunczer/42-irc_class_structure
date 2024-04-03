@@ -131,8 +131,8 @@ Topic::Topic()
 
 Topic::Topic(const std::string &userInput) : Command(userInput)
 {
-    this->channel = command.splitInput[1];
-    this->topic = command.splitInput[2];
+    this->channel = this->splitInput[1];
+    this->topic = this->splitInput[2];
 }
 
 Topic::~Topic()
@@ -149,7 +149,7 @@ Mode::Mode()
 
 Mode::Mode(const std::string &userInput) : Command(userInput)
 {
-    this.modeStore = Helper::collectModes(this.inputVector);
+    this->modeStore = Helper::collectModes(this->splitInput);
 }
 
 Mode::~Mode()
@@ -213,18 +213,18 @@ Who::~Who()
 
 // WHOIS CLASS
 
-Whois::Whois()
+WhoIs::WhoIs()
 {
 
 }
 
 
-Whois::Whois(const std::string &userInput) : Command(userInput)
+WhoIs::WhoIs(const std::string &userInput) : Command(userInput)
 {
     
 }
 
-Whois::~Whois()
+WhoIs::~WhoIs()
 {
 
 }

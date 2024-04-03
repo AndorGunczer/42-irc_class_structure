@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 12:51:17 by agunczer          #+#    #+#             */
-/*   Updated: 2024/04/03 11:32:16 by marvin           ###   ########.fr       */
+/*   Updated: 2024/04/03 12:18:58 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,56 +52,112 @@ class Join : public Command {
 };
 
 class Cap : public Command {
+    private:
+        Cap();
     public:
         
+        Cap(const std::string &userInput);
+        ~Cap();
 };
 
 class Part : public Command {
+    private:
+        Part();
     public:
         std::vector<std::string> channelsToLeave;
+
+        Part(const std::string &userInput);
+        ~Part();
 };
 
 class Topic : public Command {
+    private:
+        Topic();
+
     public:
         std::string channel;
         std::string topic;
+
+        Topic(const std::string &userInput);
+        ~Topic();
 };
 
 class Mode : public Command {
+    private:
+        Mode();
+
     public:
         std::vector<parsedMode> modeStore;
+
+        Mode(const std::string &userInput);
+        ~Mode();
 };
 
 class PrivMSG : public Command {
+    private:
+        PrivMSG();
 
+    public:
+        
+        PrivMSG(const std::string &userInput);
+        ~PrivMSG();
 };
 
 class Nick : public Command {
+    private:
+        Nick();
 
+    public:
+        Nick(const std::string &userInput);
+        ~Nick();
 };
 
 class Who : public Command {
+    private:
+        Who();
+
     public:
         std::string userRegex;
-        bool operator;
+        bool isOperator;
+
+        Who(const std::string &userInput);
+        ~Who();
 };
 
 class WhoIs : public Command {
+    private:
+        WhoIs();
+
     public:
         std::string serverName;
         std::string userName;
+
+        WhoIs(const std::string &userInput);
+        ~WhoIs();
 };
 
 class Ping : public Command {
+    private:
+        Ping();
+
     public:
         std::string serverName;
+                
+        Ping(const std::string &userInput);
+        ~Ping();
 };
 
 class Kick : public Command {
+    private:
+        Kick();
+
     public:
         std::string channelName;
         std::string user;
         std::string reason;
+
+        Kick(const std::string &userInput);
+        ~Kick();
 };
 
 /*
