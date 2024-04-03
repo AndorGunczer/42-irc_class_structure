@@ -58,6 +58,42 @@
                 std::cout << 0 << std::endl;
         }
 
+// CAP CLASS
+
+Cap::Cap()
+{
+
+}
+
+
+Cap::Cap(const std::string &userInput) : Command(userInput)
+{
+    
+}
+
+Cap::~Cap()
+{
+
+}
+
+// PART CLASS
+
+Part::Part()
+{
+
+}
+
+
+Part::Part(const std::string &userInput) : Command(userInput)
+{
+    
+}
+
+Part::~Part()
+{
+
+}
+
 // JOIN CLASS
 
 /*        std::vector<std::string> channelsToJoin;
@@ -86,6 +122,148 @@ Join::~Join()
 
 }
 
+// TOPIC CLASS
+
+Topic::Topic()
+{
+
+}
+
+Topic::Topic(const std::string &userInput) : Command(userInput)
+{
+    this->channel = command.splitInput[1];
+    this->topic = command.splitInput[2];
+}
+
+Topic::~Topic()
+{
+
+}
+
+// MODE CLASS
+
+Mode::Mode()
+{
+
+}
+
+Mode::Mode(const std::string &userInput) : Command(userInput)
+{
+    this.modeStore = Helper::collectModes(this.inputVector);
+}
+
+Mode::~Mode()
+{
+
+}
+
+// PRIVMSG CLASS
+
+PrivMSG::PrivMSG()
+{
+
+}
+
+
+PrivMSG::PrivMSG(const std::string &userInput) : Command(userInput)
+{
+    
+}
+
+PrivMSG::~PrivMSG()
+{
+
+}
+
+// NICK CLASS
+
+Nick::Nick()
+{
+
+}
+
+
+Nick::Nick(const std::string &userInput) : Command(userInput)
+{
+    
+}
+
+Nick::~Nick()
+{
+
+}
+
+// WHO CLASS
+
+Who::Who()
+{
+
+}
+
+
+Who::Who(const std::string &userInput) : Command(userInput)
+{
+    
+}
+
+Who::~Who()
+{
+
+}
+
+// WHOIS CLASS
+
+Whois::Whois()
+{
+
+}
+
+
+Whois::Whois(const std::string &userInput) : Command(userInput)
+{
+    
+}
+
+Whois::~Whois()
+{
+
+}
+
+// PING CLASS
+
+Ping::Ping()
+{
+
+}
+
+
+Ping::Ping(const std::string &userInput) : Command(userInput)
+{
+    
+}
+
+Ping::~Ping()
+{
+
+}
+
+// KICK CLASS
+
+Kick::Kick()
+{
+
+}
+
+
+Kick::Kick(const std::string &userInput) : Command(userInput)
+{
+    
+}
+
+Kick::~Kick()
+{
+
+}
 
 /*
     PSEUDO CODE FOR DECISION MAKING AND CALLING EXECUTORS (Which Command function to call)

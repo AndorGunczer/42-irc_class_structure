@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 12:51:17 by agunczer          #+#    #+#             */
-/*   Updated: 2024/04/01 15:06:07 by marvin           ###   ########.fr       */
+/*   Updated: 2024/04/03 11:32:16 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,14 +62,14 @@ class Part : public Command {
 };
 
 class Topic : public Command {
-    
+    public:
+        std::string channel;
+        std::string topic;
 };
 
 class Mode : public Command {
     public:
-        std::string channelName;
-		std::vector<std::string> negativeModeParams;	
-		std::vector<std::string> positiveModeParams;
+        std::vector<parsedMode> modeStore;
 };
 
 class PrivMSG : public Command {
@@ -81,15 +81,27 @@ class Nick : public Command {
 };
 
 class Who : public Command {
-
+    public:
+        std::string userRegex;
+        bool operator;
 };
 
 class WhoIs : public Command {
-
+    public:
+        std::string serverName;
+        std::string userName;
 };
 
 class Ping : public Command {
+    public:
+        std::string serverName;
+};
 
+class Kick : public Command {
+    public:
+        std::string channelName;
+        std::string user;
+        std::string reason;
 };
 
 /*

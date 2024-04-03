@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 11:07:03 by slippert          #+#    #+#             */
-/*   Updated: 2024/04/02 12:22:58 by marvin           ###   ########.fr       */
+/*   Updated: 2024/04/02 13:26:43 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,8 @@ std::vector<std::string> Helper::splitStringOnComma(const std::string &str)
 
 	return vectorStore;
 }
+
+// Fix channel after the first member of vector
 
 std::vector<parsedMode> Helper::collectModes(std::vector<std::string> inputVector) {
 
