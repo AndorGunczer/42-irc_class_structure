@@ -18,45 +18,73 @@
 /*		std::vector<std::string> splitInput;
 		std::string command; */
 
-        Command::Command(Command const &copyCommand)
-        {
-            *this = copyCommand;
-        }
+Command::Command(Command const &copyCommand)
+{
+    *this = copyCommand;
+}
 
-        Command const &Command::operator=(Command const &assignToThis)
-        {
-            this->splitInput = assignToThis.splitInput;
-            this->command = assignToThis.command;
+Command const &Command::operator=(Command const &assignToThis)
+{
+    this->splitInput = assignToThis.splitInput;
+    this->command = assignToThis.command;
 
-            return *this;
-        }
+    return *this;
+}
 
-        Command::Command()
-        {
+Command::Command()
+{
 
-        }
+}
 
-        Command::~Command()
-        {
+Command::~Command()
+{
 
-        }
+}
 
-        Command::Command(const std::string &userInput)
-        {
+Command::Command(const std::string &userInput)
+{
 
-            this->splitInput = Helper::splitString(userInput);
-            this->command = this->splitInput[0];
+    this->splitInput = Helper::splitString(userInput);
+    this->command = this->splitInput[0];
 
             // test
 
-            for (std::vector<std::string>::iterator it = this->splitInput.begin(); it != this->splitInput.end(); it++)
-                std::cout << *it << std::endl;
+    for (std::vector<std::string>::iterator it = this->splitInput.begin(); it != this->splitInput.end(); it++)
+        std::cout << *it << std::endl;
 
-            if (command == "JOIN")
-                std::cout << 1 << std::endl;
-            else
-                std::cout << 0 << std::endl;
-        }
+    if (command == "JOIN")
+        std::cout << 1 << std::endl;
+    else
+        std::cout << 0 << std::endl;
+}
+
+void Command::commandHandler(std::string inputCommand)
+{
+    if (inputCommand == "Join")
+    {
+
+    } else if (inputCommand == "CAP") {
+
+    } else if (inputCommand == "PART") {
+
+    } else if (inputCommand == "TOPIC") {
+
+    } else if (inputCommand == "MODE") {
+
+    } else if (inputCommand == "PRIVMSG") {
+
+    } else if (inputCommand == "NICK") {
+
+    } else if (inputCommand == "WHO") {
+
+    } else if (inputCommand == "WHOIS") {
+
+    } else if (inputCommand == "PING") {
+
+    } else if (inputCommand == "KICK") {
+
+    }
+}
 
 // CAP CLASS
 

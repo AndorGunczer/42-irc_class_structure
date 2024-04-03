@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 12:51:17 by agunczer          #+#    #+#             */
-/*   Updated: 2024/04/03 12:18:58 by marvin           ###   ########.fr       */
+/*   Updated: 2024/04/03 12:49:32 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ class Command
         Command();
         ~Command();
         Command(const std::string &userInput);
+        static std::string determineCommand(std::string inputCommand);
 };
 
 class Join : public Command {
