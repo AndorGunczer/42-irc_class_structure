@@ -3,12 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   Includes.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agunczer <agunczer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 11:22:15 by slippert          #+#    #+#             */
-/*   Updated: 2024/03/27 11:34:26 by agunczer         ###   ########.fr       */
+/*   Updated: 2024/04/04 17:03:53 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef INCLUDES_HPP
+#define INCLUDES_HPP
 
 #pragma once
 
@@ -115,3 +118,5 @@
 #define ERR_NICKINUSE(nickname) (": 433 " + nickname + " :Nickname is already in use" + CRLF)
 #define ERR_ERRONEUSNICK(nickname) (": 432 " + nickname + " :Erroneus nickname" + CRLF)
 #define ERR_NOTREGISTERED(nickname) (": 451 " + nickname + " :You have not registered!" + CRLF)
+
+#endif

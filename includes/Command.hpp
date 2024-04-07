@@ -6,15 +6,21 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 12:51:17 by agunczer          #+#    #+#             */
-/*   Updated: 2024/04/03 12:49:32 by marvin           ###   ########.fr       */
+/*   Updated: 2024/04/07 16:53:49 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef COMMAND_HPP
+#define COMMAND_HPP
 
 #pragma once
 
 #include <vector>
 #include <iostream>
-#include "../includes/Helper.hpp"
+#include "Helper.hpp"
+#include "Includes.hpp"
+#include "Client.hpp"
+// #include "Cap.hpp"
 
 // Objective:
 //      1. Take Command, after calling the constructor we should be able to determine the callable function
@@ -22,6 +28,9 @@
 //      3. constructor of subclass
 //      4. call Function (_socket, class)
 //      5. function implementation (Steven)
+
+class Server;
+class Cap;
 
 class Command
 {
@@ -32,11 +41,14 @@ class Command
 	public:
 		std::vector<std::string> splitInput;
 		std::string command;
+        std::string receivedString;
+        Server *server;
 
         Command();
         ~Command();
         Command(const std::string &userInput);
-        static std::string determineCommand(std::string inputCommand);
+        // static std::string determineCommand(std::string inputCommand);
+        // void checkCommand(int _clientSocket, std::map<int, Client> clients, Server *server);
 };
 
 class Join : public Command {
@@ -46,19 +58,10 @@ class Join : public Command {
     public:
         std::vector<std::string> channelsToJoin;
         std::vector<std::string> passwordStore;
-        bool removeAll = false;
+        bool removeAll;
 
         Join(const std::string &userInput);
         ~Join();
-};
-
-class Cap : public Command {
-    private:
-        Cap();
-    public:
-        
-        Cap(const std::string &userInput);
-        ~Cap();
 };
 
 class Part : public Command {
@@ -177,3 +180,5 @@ class Kick : public Command {
 	bool unknownCMD(int _clientS
 
 */
+
+#endif

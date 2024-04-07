@@ -4,7 +4,7 @@ CXX				:= c++
 
 CXXFLAGS		:= -Wall -Wextra -Werror -std=c++98
 
-SRCS			:= main.cpp Server.cpp Helper.cpp
+SRCS			:= main.cpp Server.cpp Helper.cpp Command.cpp Cap.cpp
 # Commands.cpp
 
 SRCS_F			:= sources/

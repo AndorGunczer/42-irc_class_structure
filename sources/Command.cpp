@@ -46,6 +46,8 @@ Command::Command(const std::string &userInput)
 
     this->splitInput = Helper::splitString(userInput);
     this->command = this->splitInput[0];
+    this->receivedString = userInput;
+    this->server = server;
 
             // test
 
@@ -58,59 +60,53 @@ Command::Command(const std::string &userInput)
         std::cout << 0 << std::endl;
 }
 
-void Command::commandHandler(std::string inputCommand)
-{
-    if (inputCommand == "Join")
-    {
+// void Command::checkCommand(int _clientSocket, std::map<int, Client> clients, Server *server)
+// {
+// 	std::string msg = clients[_clientSocket].recvMsg;
+// 	Command command(msg, server);
+// 	if (msg == "")
+// 		return;
 
-    } else if (inputCommand == "CAP") {
-
-    } else if (inputCommand == "PART") {
-
-    } else if (inputCommand == "TOPIC") {
-
-    } else if (inputCommand == "MODE") {
-
-    } else if (inputCommand == "PRIVMSG") {
-
-    } else if (inputCommand == "NICK") {
-
-    } else if (inputCommand == "WHO") {
-
-    } else if (inputCommand == "WHOIS") {
-
-    } else if (inputCommand == "PING") {
-
-    } else if (inputCommand == "KICK") {
-
-    }
-}
-
-// CAP CLASS
-
-Cap::Cap()
-{
-
-}
-
-
-Cap::Cap(const std::string &userInput) : Command(userInput)
-{
-    
-}
-
-Cap::~Cap()
-{
-
-}
+// 	if (command.command == "CAP")
+// 	{
+// 		Cap capInstance(msg, this);
+// 		return;
+// 	}
+	// if (command.command == "JOIN")
+	// {
+	// 	// JOIN
+	// 	return;
+	// }
+	// if (command.command == "PART")
+	// {
+	// 	// PART
+	// 	return;
+	// }
+	// if (checkPRIVMSG(_clientSocket, msg))
+	// 	return;
+	// if (checkNICK(_clientSocket, msg))
+	// 	return;
+	// if (checkWHO(_clientSocket, msg))
+	// 	return;
+	// if (checkWHOIS(_clientSocket, msg))
+	// 	return;
+	// if (checkMODE(_clientSocket, msg))
+	// 	return;
+	// if (checkPING(_clientSocket, msg))
+	// 	return;
+	// if (checkQUIT(_clientSocket, msg))
+	// 	return;
+	// // if a unknown command is entered
+	// if (unknownCMD(_clientSocket, msg))
+	// 	return;
+// }
 
 // PART CLASS
 
 Part::Part()
 {
-
+    
 }
-
 
 Part::Part(const std::string &userInput) : Command(userInput)
 {
@@ -139,6 +135,7 @@ Join::Join(const std::string &userInput) : Command(userInput)
     // this->command = command.command;
 
     // split on ,;
+    this->removeAll = false;
     this->channelsToJoin = Helper::splitStringOnComma(this->splitInput[1]);
     this->passwordStore = Helper::splitStringOnComma(this->splitInput[2]);
     if (this->channelsToJoin[0] == "0")

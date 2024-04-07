@@ -6,9 +6,12 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 11:06:52 by slippert          #+#    #+#             */
-/*   Updated: 2024/04/02 14:57:29 by marvin           ###   ########.fr       */
+/*   Updated: 2024/04/04 17:03:45 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef HELPER_HPP
+#define HELPER_HPP
 
 #pragma once
 
@@ -36,3 +39,5 @@ public:
 	static std::vector<parsedMode> collectModes(std::vector<std::string> inputVector);
 	static bool isMode(const std::string &str);
 };
+
+#endif
